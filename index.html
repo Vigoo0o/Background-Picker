@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Background-Picker</title>
+  </head>
+  <body>
+    <div class="form">
+      <input class="choiesColor" type="color" name="color" />
+      <input class="subBut" type="submit" value="Change Color" />
+    </div>
+    <script>
+      if (localStorage.getItem("bg-color")) {
+        document.body.style.backgroundColor = localStorage.getItem("bg-color");
+      }
+
+      let submitButton = document.querySelector(".subBut");
+
+      submitButton.addEventListener("click", function () {
+        let value = document.querySelector(".choiesColor").value;
+        window.localStorage.setItem("bg-color", value);
+        document.body.style.backgroundColor = localStorage.getItem("bg-color");
+      });
+    </script>
+  </body>
+</html>
